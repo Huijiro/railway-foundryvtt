@@ -6,6 +6,8 @@ ARG FOUNDRY_VERSION=13.346
 
 EXPOSE 30000/TCP
 
+USER 421:421
+
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["resources/app/main.mjs", "--port=30000", "--headless", "--noupdate", "--dataPath=/data", "--user 421:421"]
+CMD ["resources/app/main.mjs", "--port=30000", "--headless", "--noupdate", "--dataPath=/data"]
 HEALTHCHECK --start-period=3m --interval=30s --timeout=5s CMD ./check_health.sh
